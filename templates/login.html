@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+        <style>
+         .center {
+              margin-left: auto;
+             margin-right: auto;
+             border: 1px ;
+             border-radius: 10px;
+            background-color: #36A9AE;
+            height:300px;
+            }
+
+
+
+/* CSS */
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-24:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+.button-24:active {
+  opacity: .5;
+}
+</style>
+</head>
+<body style="background-image:url({% static 'images/destination_3.jpg' %})" >
+
+<form action="login" method="post">
+    {% csrf_token %}
+    <table class="center">
+        <br><br><br><br>
+        <tr><td bgcolor="#FF4742"  align="center" colspan="2"><h2 style="color:beige;">Login</h2></td></tr>
+        <tr>
+            <td><label>Username</label></td>
+            <td><input type="text" name="username" placeholder="@username"></td>
+        </tr>
+
+        <tr>
+            <td><label>Password</label></td>
+            <td><input type="password" name="pwd1" placeholder="*******"></td>
+        </tr>
+
+        <tr><br><br><br>
+            <td colspan="2" align="center"><input class="button-24" type="submit" value="Register"></td>
+        </tr>
+    </table>
+
+</form>
+{% for msg in messages %}
+{{msg}}
+{% endfor %}
+
+</body>
+</html>
